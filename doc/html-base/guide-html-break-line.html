@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/60702fc5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/9295abe6/solarized_light.css" rel="stylesheet">
+<link href="./assets/ccfa86b2/style.css" rel="stylesheet">
+<script src="./assets/43822d01/jquery.js"></script>
+<script src="./assets/60702fc5/js/bootstrap.js"></script>
+<script src="./assets/1bf1209e/jssearch.js"></script>    <title>leepyDOc 换行 - HTML - leepy site home</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w18" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w18-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w18-collapse" class="collapse navbar-collapse"><ul id="w19" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-16" data-toggle="collapse" data-parent="#navigation">HTML <b class="caret"></b></a><div id="navigation-16" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-html-file.html">LeepyDoc 网页文件</a>
+<a class="list-group-item active" href="./guide-html-break-line.html">leepyDOc 换行</a>
+<a class="list-group-item" href="./guide-css-introduction.html">LeepyDoc 介绍</a>
+<a class="list-group-item" href="./guide-selector-attr.html">Fecshop 选择器和属性</a></div>
+<a class="list-group-item" href="#navigation-17" data-toggle="collapse" data-parent="#navigation">CSS初步了解 <b class="caret"></b></a><div id="navigation-17" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <div class="toc"><ol><li><a href="#css">CSS - 选择器和属性</a></li></ol></div>
+<h2>CSS - 选择器和属性 <span id="css"></span><a href="#css" class="hashlink">&para;</a></h2><ul>
+<li>作�
+：leepy</li>
+<li>日期：2016/6/12</li>
+</ul>
+<p>CSS要通过选择器这个东西来找到HTML标签进行"�
+扮"一番,之前的代码</p>
+<p>'body{</p>
+<pre><code class="hljs less"><span class="hljs-attribute">background-color</span>:red;
+</code></pre>
+<p>}'</p>
+<p>很明显,开头有body这个词,�
+�实就是要对body这个标签上�
+扮,我们以后叫做"上样式"或�
+"样式渲染"之类的吧</p>
+<p>然后用一对花括号,里面�
+一些你没学过的代码进行body的样式渲染,而body这部分就是选择器</p>
+<p>比如body里面有这样的HTML标签结构</p>
+<p>'<body></p>
+<pre><code class="hljs twig"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>段落文字....<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"http://leepy87.club"</span>&gt;</span>leepy之家<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+</span></code></pre>
+<p></body>'</p>
+<p>那么我们试下用这样的CSS选择器来让段落文字变成蓝色,让链接变成红色吧:</p>
+<p>'p{</p>
+<pre><code class="hljs less"><span class="hljs-attribute">color</span>:blue;
+</code></pre>
+<p>}</p>
+<p>a{</p>
+<pre><code class="hljs less"><span class="hljs-attribute">color</span>:red;
+</code></pre>
+<p>}'</p>
+<p>这里花括号前面的p和a也是选择器,反正在花括号前面的都是选择器,后面专门教你一些选择器.</p>
+<p>另外,花括号里面�
+住的color:blue;这个是样式属性,�
+�中color是样式属性的名称(用于定义文字颜色),blue是属性的值,样式样属和值之间用:号隔开,后面再加一个分号作为结束</p>
+<p>属性可以有多个,比如</p>
+<p>'p{</p>
+<pre><code class="hljs less"><span class="hljs-attribute">color</span>:blue;
+<span class="hljs-attribute">font-size</span>:<span class="hljs-number">18px</span>;
+</code></pre>
+<p>}'</p>
+<p>这里就是加多了个font-size属性了,这个属性用于定义字体大小,用上这个属性后你可以看到文字放大了一些是吧</p>
+<p>而属性的书写是比较随便的,可以不缩进,也可以写在一行</p>
+<p>'p{color:blue;font-size:18px;}'</p>
+<p>这样写都可以的,这样你终于知道为什么在属性后面要有个;号了吧?因为如果没有分号隔开的话,就会地变成</p>
+<p>'p{color:bluefont-size:18px;}'</p>
+<p>那浏览器怎么识别blue跟font是两个词呀?人家还以为bluefont就是color的值呢!所以总得需要一些符号把N个属性隔开的.规范的书写中,我们一般将每个属性都在;号后面加个空格隔开这样看着整洁点,比如 p{color:blue; font-size:18px;}</p>
+<h3>多个选择器� <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>�用样式</p>
+<p>如果你想a标签和p标签都用红色字,只要这样写就可以</p>
+<p>'<style type="text/css">
+p,a{color:red;}
+</style>'</p>
+<p>用逗号隔开两个选择器写在一行就可以了</p>
+<p>CSS代码就是由选择器和属性组成的,接下来都是学习各种选择器和样式属性,然后让网页漂亮起来!</p>
+<h3>注释 <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>在CSS中也可以写注释,书写格式是 /<em>注释�
+容</em>/,就是用/<em>和</em>/分别放在一左一右,�
+住中间的�
+容就是注释�
+容,比如:
+'body{</p>
+<pre><code class="hljs less"><span class="hljs-comment">/*background-color:red;注释掉这个样式,暂时不要染成红色*/</span>
+<span class="hljs-attribute">height</span>:<span class="hljs-number">400px</span>; <span class="hljs-comment">/*只要留下高度*/</span>
+</code></pre>
+<p>}'
+注释可以写在任何地方,但是你这样写是不对的:
+'body{</p>
+<pre><code class="hljs less"><span class="hljs-comment">/*background-color:red;注释掉这个样式,暂时不要染成红色*/</span>
+<span class="hljs-attribute">width</span>:<span class="hljs-number">600px</span>;
+<span class="hljs-attribute">height</span>:<span class="hljs-number">400px</span>; <span class="hljs-comment">/*只要留下高度
+</span></code></pre>
+<p>}*/'</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Thu, 29 Jun 2017 02:44:17 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script type="text/javascript">jQuery(document).ready(function () {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

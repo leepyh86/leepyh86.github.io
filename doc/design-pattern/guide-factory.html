@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/1284b1ca/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/ece1a17d/solarized_light.css" rel="stylesheet">
+<link href="./assets/4ca807ef/style.css" rel="stylesheet">
+<script src="./assets/777ebcad/jquery.js"></script>
+<script src="./assets/1284b1ca/js/bootstrap.js"></script>
+<script src="./assets/bb62ad23/jssearch.js"></script>    <title>工厂模式 - 设计模式 - The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w13" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w13-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w13-collapse" class="collapse navbar-collapse"><ul id="w14" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-12" data-toggle="collapse" data-parent="#navigation">设计模式 <b class="caret"></b></a><div id="navigation-12" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-singel-instance.html">单例模式</a>
+<a class="list-group-item active" href="./guide-factory.html">工厂模式</a>
+<a class="list-group-item" href="./guide-observer.html">观察者模式</a>
+<a class="list-group-item" href="./guide-strategy.html">策略模式</a></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h3>1.什么叫工厂模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>定义一个类创建一个专门生成某个接口不同实现的complete的public方法.</p>
+<h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。</p>
+<ul>
+<li>隐藏detail类名，很多类隐藏得很深的，而且可能会在后续版本换掉</li>
+<li>aviod you辛苦的准备构造方法的参数</li>
+<li>这个工厂类可以被config成Other Class</li>
+<li>这个工厂对象可以被传递</li>
+</ul>
+<p>最后来句重要的
+new XXX,actually也是一种硬编码！！！</p>
+<h3>3.Specific 实现 <span id="3specific"></span><a href="#3specific" class="hashlink">&para;</a></h3><p>好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
+创建一个接口
+<code>`</code></p>
+<pre><code class="hljs php"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span></span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCircumference</span><span class="hljs-params">()</span></span>;
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">shape</span></span>{<span class="hljs-comment">/*Rectangle类实现接口*/</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$width</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$height</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$width</span>, <span class="hljs-variable">$height</span>)</span></span>{
+        <span class="hljs-variable">$this</span>-&gt;width = <span class="hljs-variable">$width</span>;
+        <span class="hljs-variable">$this</span>-&gt;height = <span class="hljs-variable">$height</span>;
+    }        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-variable">$this</span>-&gt;width*<span class="hljs-variable">$this</span>-&gt;height;
+    } 
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCircumference</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*(<span class="hljs-variable">$this</span>-&gt;width + <span class="hljs-variable">$this</span>-&gt;height);
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">shape</span></span>{<span class="hljs-comment">/*Circle类实现接口*/</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$radius</span>=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$radius</span>)</span></span>{
+        <span class="hljs-variable">$this</span>-&gt;radius = <span class="hljs-variable">$radius</span>;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> M_PI*pow(<span class="hljs-variable">$this</span>-&gt;radius, <span class="hljs-number">2</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCircumference</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*M_PI*<span class="hljs-variable">$this</span>-&gt;radius;
+    }
+ }
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FactoryShape</span></span>{<span class="hljs-comment">/*FactoryShape工厂类生产实例*/</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">switch</span>(func_num_args()){
+            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Circle(func_get_arg(<span class="hljs-number">0</span>));
+            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Rectangle(func_get_arg(<span class="hljs-number">0</span>), func_get_arg(<span class="hljs-number">1</span>));
+
+         <span class="hljs-keyword">default</span>:
+             <span class="hljs-comment"># code....</span>
+             <span class="hljs-keyword">break</span>;
+         }
+     
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">otherClass</span></span>{<span class="hljs-comment">/*外部类调用*/</span> 
+    <span class="hljs-variable">$rect</span> = FactoryShape::create(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>);<span class="hljs-comment">/*只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other classs using，也方便接口的扩展*/</span>
+    <span class="hljs-variable">$area</span> = <span class="hljs-variable">$rect</span>-&gt;getArea();
+    <span class="hljs-variable">$circumference</span> = <span class="hljs-variable">$rect</span>-&gt;getCircumference();
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"面积是："</span>.<span class="hljs-variable">$area</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"周长是："</span>.<span class="hljs-variable">$circumference</span>;
+}
+</code></pre>
+<pre><code class="hljs ">
+</code></pre>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Sun, 02 Jul 2017 07:01:20 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script type="text/javascript">jQuery(document).ready(function () {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -1,0 +1,18 @@
+#default{font-size:50px;position:absolute;left:0}
+.result{font-size:50px;position:absolute;left:0;top:150px}
+.string{font-size:50px;position:absolute;left:0;top:150px}
+*{margin:0;padding:0;list-style:none;box-sizing:border-box;-webkit-overflow-scrolling:touch;overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0)}
+canvas{position:absolute;top:0}
+.potter_content *{vertical-align:bottom;display:block}
+#loading{width:100%;height:100%;position:absolute;background:#fffbee;top:0}
+#loading .splash-text{text-align:center;font-family:arial;position:relative;letter-spacing:10px;top:38%;font-size:30px;line-height:30px}
+#loading .splash-percentage{font-family:bodoni-italic;font-style:italic;font-weight:100;font-size:80px;text-align:center;line-height:80px;transform:rotate(-9deg);color:#414141;width:100%;height:70px;position:relative;top:40%;left:-2%}
+.end{display:none;width:100%;height:100%;position:absolute;background:#fbf8ef}
+.end .top{width:522px;height:444px;background:url(images/end/top.png) no-repeat;-webkit-transition:all linear .3s;margin:129px auto 0;opacity:0}
+.end .author{width:430px;height:587px;background:url(images/end/author.png) no-repeat;margin:-108px auto 0;margin-left:168px;opacity:0;-webkit-transition:all linear .3s .6s;position:relative}
+.end .author .download{width:260px;height:40px;position:absolute;left:0;top:555px}
+.end .author .download a{display:block;width:100%;height:100%}
+.end .logo{width:335px;height:69px;background:url(images/end/logo.png);position:absolute;bottom:50px;left:207.5px;opacity:0;-webkit-transition:all linear .3s .9s}
+.end.show .top{margin-top:119px;opacity:1}
+.end.show .author{opacity:1}
+.end.show .logo{opacity:1}

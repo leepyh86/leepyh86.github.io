@@ -1,21 +1,234 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type="text/css">
-        /*重置浏览器默认样式*/
-        *{margin:0; padding:0}
-        a{text-decoration: none;}
-        ul{list-style: none;}
-        
-
-    </style>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<title>PHP程序员的成长之路</title>
+<link href="indexresources/bootstrap.css" rel="stylesheet">
+<script src="indexresources/jquery-1.11.1.min.js"></script><style type="text/css">
+.container{padding-bottom:40px;}
+.jumbotron p{font-size:14px;}
+body{padding:7px;}
+.testList{margin-top:7px;}
+.testList div{margin-bottom:20px;}
+.enabled{font-weight:bold;}
+.disabled{color:#909090;}
+body header.jumbotron{padding:5px;}
+header .links{text-align:right;}
+.updateLogContent ul{list-style-type:none;}
+</style>
+<script type="text/javascript">
+$(function(){
+    $('#testList div').each(function(i){
+        $(this).prepend((i + 1) + '、');
+    });
+});
+</script>
 </head>
 <body>
-    <ul><li>welcome to our php's family</li><ul>
-</body>
-</html>
+<div class="container">
+	<header class="jumbotron">
+		<h2 class="text-center">PHP程序员的成长之路</h2>
+		<div>
+           	 <p>大家后我叫leepy,php程序员一枚，2014年从事IT开发,入行后始终认为php是世界上最好的编程语言。下面都是10>年至今买书看网帖和视频以及工作积累等方式掌握到的知识，有的学得不深，而并不是我学
+得有多么深奥了才写下文章分享给大家</p>
+                 <p>反正也可以当作笔记自查，与朋友交流时直接给出网址作为个人观点免得>再重复打字。对于大牛来说，我这些知识都只是皮毛</p>
+                 <p>主要都是针对工作中用到的来讲，用不到的就先略微提提或者暗示你去自>己搜索资料研究就好了</p>           
+                 <p>写博客的感觉不错！建议看看 <a href ="javascript:alert(disabledTip)" href="/it/leaning-share/guide-write-blog.html" target="_blank">写博客的好处</a></p>
+                 <p>附个人创办的开源项目，还在慢慢挤时间开发中：<a href ="javascript:alert(disabledTip)" href="https://github.com/kk8686/xoa" target="_blank">小OA</a>（该项目能给到你的参考点：前后分离开发的实现、gulp构建环境的应用、Yii2框架的应用Demo、Codeception测试框架的运用、前端自动同步后端的字典集）</p>
+			<p class="links">
+				<a href ="javascript:alert(disabledTip)" href="#update-log">文章更新记录</a>
+			</p>
+		</div>
+	</header>
+
+	<div class="row testList" id="testList">
+		
+				<div class="col-xs-6 col-md-3">
+			<a href="/doc/design-pattern/guide-README.html"  target="_blank"class="enabled">大话php设计模式</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">JavaScript常用基础</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)" target="_blank"class="disabled">PHP基础</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Web服务器与HTTP协议</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="/doc/mysql/guide-README.html"  target="_blank"class="enabled">MySql数据库常用基础</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank" class="disabled">jQuery基础</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank" class="disabled">ThinkPHP框架</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">移动端Web开发</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">是时候去找你的第一份工作了</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">SVN</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">PHP进阶</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">JS+JQ进阶</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">HTTP协议常识</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">MySql进阶</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Linux系统基础</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">SVN服务器管理</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">PHP-Codeception测试开发</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">Web开发调试方案分享</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">其它经验分享</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">编码规范与PSR标准</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">程序设计心得分享</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">Composer</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">PHP-Yii2框架基础入门</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">Yii2经验分享</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">聊聊面向对象与MVC模式</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Redis</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">转载收藏</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">SOAP与REST接口设计</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  onclick="alerts()"  target="_blank"class="disabled">Apache2.4</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Nginx</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)" target="_blank"class="disabled">Jenkins持续集成</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Node.js快速上手</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">C语言基础</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">C# + WinForm笔记</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)" href="javascript:alert('敬请期待~\n如果你真想学这种东西最好去学NSIS或InstallShield')" class="disabled">InnoSetup安装包UI开发</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Java + Android笔记</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">用gulp搭建前后分离的开发环境</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)" target="_blank"class="disabled">当管理者的感受</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">我们必须注重自动化</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">Python</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">Chrome插件开发</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Git</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="enabled">用Markdown写文档</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">Linux系统进阶</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">awk脚本</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)" class="disabled">Squid反向代理与LVS</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">WebSocket与PHP-Workerman框架</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  class="disabled">PHP-Yaf框架</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">自学经验分享</a>
+		</div>
+				<div class="col-xs-6 col-md-3">
+			<a href ="javascript:alert(disabledTip)"  target="_blank"class="disabled">杂谈</a>
+		</div>
+			</div>
+	
+	<hr />
+	
+	<div id="update-log">
+		<h3>最近的文章动态</h3>
+		<div id="updateLogContent" class="updateLogContent"></div>
+				<h4><button class="btn btn-primary" type="button" onclick="loadUpdateLog(true, this)" id="btnShowAllLogs">显示全部动态</button></h4>
+	</div>
+	
+	<div class="ds-thread" data-thread-key="kk-it-article" data-title="野生程序员的成长之路" data-url="http://www.kkh86.com/it/index.html"></div>
+	
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:'kkh86'};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+	</div>
+<script src="indexresources/bootstrap.min.js">
+	var disabledTip = '敬请期待~你也可以先自行上网搜索资料学习哦';
+	$('.disabled').on('onclick', function(){
+		alert('敬请期待~你也可以先自行上网搜索资料学习哦');
+	})
+</script>
+<script>
+   var disabledTip = '敬请期待~你也可以先自行上网搜索资料学习哦'; 
+ 
+     function alerts(){
+  		layer.alert('敬请期待~你也可以先自行上网搜索资料学习哦');
+	};
+</script> 
+ </body>
+ </html>
